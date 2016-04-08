@@ -5,8 +5,8 @@ DEPOT_DIR=/usr/local/p4root
 P4=/usr/local/bin/p4
 USER=xxxxx
 PASSWORD=xxxx
-DAYS_TO_KEEP=7
 DATE=`date "+%y%j"`
+OUT_DATA=`expr $DATE - 7`
 
 # Verify the depot
 echo "=========Verify depot=========="
@@ -28,3 +28,7 @@ echo "Copy depot to backup dir..."
 cp -r $DEPOT_DIR/depot $BACKUP_DIR/$DATE
 echo "=========Daily backup complete========="
 
+# Remove outdated data
+echo "Removing outdated dir:$BACKUP_DIR/$OUT_DATA"
+rm -rf $BACKUP_DIR/$OUT_DATA
+echo "Done."
