@@ -3,7 +3,7 @@
 BACKUP_DIR=/media/backup
 DEPOT_DIR=/usr/local/p4root
 P4=/usr/local/bin/p4
-USER=xxxxx
+USER=xxxx
 PASSWORD=xxxx
 DATE=`date "+%y%j"`
 OUT_DATA=`expr $DATE - 7`
@@ -14,7 +14,7 @@ $P4 -u $USER -P $PASSWORD verify //...
 
 # Create checkpoint and journal
 echo "Generating checkpoint and journal..."
-$P4 -u $USER -P $PASSWORD admin checkpoint
+$P4 -u $USER -P $PASSWORD admin checkpoint > /media/backup/backup.log 2> /media/backup/backup.err
 
 # Create backup sub dir
 echo "Create today's dir"
