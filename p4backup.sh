@@ -3,10 +3,14 @@
 BACKUP_DIR=/media/backup
 DEPOT_DIR=/usr/local/p4root
 P4=/usr/local/bin/p4
-USER=xxxx
-PASSWORD=xxxx
+P4D=/usr/local/bin/p4d
+USER=
+PASSWORD=
 DATE=`date "+%y%j"`
 OUT_DATA=`expr $DATE - 7`
+
+# Set env variable in case not found
+export P4PORT=127.0.0.1:1666
 
 # Verify the depot
 echo "=========Verify depot=========="
